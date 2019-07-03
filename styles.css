@@ -1,0 +1,101 @@
+:root {
+  --csh-primary: #B0197E;
+  --csh-secondary: #E11C52;
+  --bg: #170628;
+  --fg: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg1);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 2em;
+  font-family: Poppins, Roboto, sans-serif;
+  font-size: calc(18px + 1.2vmin);
+}
+
+h1 {
+  font-size: 1.25em;
+  font-weight: 200;
+}
+
+h1 em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 0.9em;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+p {
+  font-weight: 300;
+  font-size: 0.75em;
+  line-height: 1.4;
+}
+
+.row {
+  padding: 20px 0;
+}
+
+#header {
+  padding: 2em 0;
+  font-size: 1.5em;
+}
+
+#header img {
+  width: 100%;
+  max-width: 400px;
+  margin: 10px 0;
+}
+
+a:not(.btn) {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #DDDDDD;
+}
+
+.btn#apply {
+  font-weight: bolder;
+}
+
+#sponsors img {
+  opacity: 1.0;
+  max-height: 50px;
+  transition: 0.3s opacity;
+}
+
+#sponsors a:not(:first-of-type) {
+  margin-left: 20px;
+}
+
+#sponsors img:hover {
+  opacity: 0.7;
+}
+
+#sponsors a {
+  text-decoration: none;
+}
+
+u {
+  font-weight: 400;
+  text-decoration-style: wavy;
+}
