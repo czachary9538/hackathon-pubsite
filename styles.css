@@ -20,7 +20,7 @@ body {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 0 1em;
   padding-bottom: 2em;
   font-family: Rubik, Roboto, sans-serif;
   font-size: calc(10pt + 1vmin);
