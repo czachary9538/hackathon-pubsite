@@ -188,3 +188,44 @@ u {
   font-weight: 400;
   text-decoration-style: wavy;
 }
+
+#registration-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content:center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width:auto;
+  height:auto;
+  margin:auto;
+  padding:5px;
+  padding-top:20px;
+}
+
+.row-registration{
+  padding:8px;
+}
+
+.row-registration .col-4 input {
+  background:#f2f2f2;
+  border:none;
+  outline: none;
+  padding:10px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.row-registration .col-4 select {
+  padding:10px;
+  height: 45px;
+  border-radius: 5px;
+  width:300px;
+}
+
+small {
+  width: 300;
+}

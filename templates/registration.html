@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://s3.csh.rit.edu/csh-material-bootstrap/4.0.0/dist/csh-material-bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="https://s3.csh.rit.edu/cshacks-assets/csh_hacks_logo.svg" alt="CSH Hacks logo" />
+                    <h1>
+                        Registration
+                    </h1>
+                    <p> We're looking forward to having you! Filling out this registration form should take around 5-10 minutes. After you submit, look out for a registration confirmation email (might take up to a week for your registration to be confirmed).</p>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registration-wrapper">
+        <div class="card">
+            <form>
+                <div class="row-registration">
+                    <div class="col-4">
+                        <input type="text">
+                        <small>First name</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <input type="text">
+                        <small>Last name</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <input type="email">
+                        <small>Email</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <input type="number" min="0">
+                        <small>Age</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <input type="tel">
+                        <small>Phone number</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <select id="university-dropdown">
+                            <option></option>
+                            <option>Rochester Institute of Technology</option>
+                            <option>University of Rochester</option>
+                        </select>
+                        <small>School</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <select id="studylevel-dropdown">
+                            <option></option>
+                            <option>Less than Secondary/High School</option>
+                            <option>Secondary/High School</option>
+                            <option>Undergraduate University (2 year - community college or similar)</option>
+                            <option>Undergraduate University (3+ year)</option>
+                            <option>Graduate University (Masters, Professional, Doctoral, etc)</option>
+                            <option>Code School/Bootcamp</option>
+                            <option>Other Vocational/Trade Program or Apprenticeship</option>
+                            <option>Post Doctorate</option>
+                            <option>Other</option>
+                            <option>I am not currently a student</option>
+                            <option>Prefer not to answer</option>
+                        </select>
+                        <small>Level of study</small>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4">
+                        <select id="country-dropdown">
+                            <option></option>
+                            <option>United States of America</option>
+                        </select>
+                        <small>Country</small>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!--
+    <script>
+        var bb = new Blob('schools.csv'.readAsText());
+        var blob = bb.getBlob('schools.csv');
+        //console.log(reader.readAsText(new File([""], "schools.csv")));
+        var list = ["test", "test2", "test3", "test4"];
+
+        for(var i=0; i<list.length; i++) {
+            var opt;
+            opt = document.createElement("OPTION");
+            opt.id = "value"+i+list[i];
+            opt.innerHTML = list[i];
+            // Finally, append <option> to dropdown menu
+            document.getElementById('university-dropdown').appendChild(opt);
+        }
+    </script>-->
+    
+</body>
+</html>
