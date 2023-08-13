@@ -135,7 +135,19 @@ function submitRegister() {
             body: JSON.stringify(outJson)
         }
     ).then((resp) => {
-        console.log(resp);
+        let text = resp.text().then((text)=>text);
+        if (resp.status != 200) {
+            document.getElementById("submit-div").insertAdjacentHTML("beforebegin", 
+            `
+            <div class="alert alert-danger error" role="alert">
+                An error has occured on submission.
+                <code>
+                    ${text}
+                </code>
+            </div>
+            `);
+        }
+        window.location.href = `/success?id=${text}`
     });
     return false;
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Signed Up!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://s3.csh.rit.edu/csh-material-bootstrap/4.0.0/dist/csh-material-bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/register.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="https://s3.csh.rit.edu/cshacks-assets/csh_hacks_logo.svg" alt="CSH Hacks logo" />
+                    <h1>
+                        Registration Complete!
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registration-wrapper">
+        <div class="card">    
+            <h2> Thank you for signing up for CSHacks!</h2>
+            <br>
+            <h2> Your registration number is {{ reg_id }}, please use this for any questions.</h2>
+            <br>
+            <h2> See you soon!</h2>
+        </div>
+    </div>
+
+    <!--
+    <script>
+        var bb = new Blob('schools.csv'.readAsText());
+        var blob = bb.getBlob('schools.csv');
+        //console.log(reader.readAsText(new File([""], "schools.csv")));
+        var list = ["test", "test2", "test3", "test4"];
+
+        for(var i=0; i<list.length; i++) {
+            var opt;
+            opt = document.createElement("OPTION");
+            opt.id = "value"+i+list[i];
+            opt.innerHTML = list[i];
+            // Finally, append <option> to dropdown menu
+            document.getElementById('university-dropdown').appendChild(opt);
+        }
+    </script>-->
+    
+</body>
+</html>

@@ -33,11 +33,15 @@ def register():
         db.session.add(orientation)
         db.session.add(major)
         db.session.commit()
-        return "", 200
+        return f'{new_signup.id}', 200
     except ValueError as value_err:
         return str(value_err), 400
     except Exception as err:
         return str(err), 500
+
+@app.route('/success')
+def success():
+    return render_template('success.html', reg_id=request.args['id'])
 
 @app.route('/favicon/<string:filename>')
 def favicon(filename):
