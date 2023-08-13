@@ -146,8 +146,9 @@ function submitRegister() {
                 </code>
             </div>
             `);
+        } else {
+            window.location.href = `/success?id=${text}`;
         }
-        window.location.href = `/success?id=${text}`
     });
     return false;
 }
