@@ -69,12 +69,12 @@ class SignUp(db.Model):
         if len(self.gender) == 0:
             raise ValueError("Missing gender")
         self.pronouns = form_data['pronouns']
-        if self.pronouns == 'Other':
+        if self.pronouns == 'other':
             self.pronouns = form_data['pronounsOther']
         if len(self.pronouns) == 0:
             raise ValueError("Missing pronouns")
         self.highest_level = form_data['highestEdu']
-        if self.highest_level == 'Other':
+        if self.highest_level == 'other':
             self.highest_level = form_data['eduOther']
         if len(self.highest_level) == 0:
             raise ValueError("Missing highest_level")
@@ -138,7 +138,7 @@ class Race(db.Model):
         self.vietnamese = 'vietnamese' in form_data['race']
         self.white = 'white' in form_data['race']
         self.other_asian = 'other_asian' in form_data['race']
-        self.other_pacific_island = 'other_pacific_island' in form_data['race']
+        self.other_pacific_island = 'other_pacific_islander' in form_data['race']
         self.prefer_not_answer = 'prefer_not_answer' in form_data['race']
         if 'other' in form_data['race']:
             self.other = form_data['raceOther']
