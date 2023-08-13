@@ -1,8 +1,8 @@
-"""init
+"""Init
 
-Revision ID: 217765c3391e
+Revision ID: 92d20fbb97b2
 Revises: 
-Create Date: 2023-08-10 22:22:04.048310
+Create Date: 2023-08-13 00:23:59.351709
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '217765c3391e'
+revision = '92d20fbb97b2'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -26,6 +26,7 @@ def upgrade():
     sa.Column('age', sa.Integer(), nullable=False),
     sa.Column('phone_number', sa.String(), nullable=False),
     sa.Column('university', sa.String(), nullable=False),
+    sa.Column('shirt_size', sa.String(), nullable=False),
     sa.Column('study_level', sa.String(), nullable=False),
     sa.Column('country', sa.String(), nullable=False),
     sa.Column('coc', sa.Boolean(), nullable=True),
@@ -33,49 +34,62 @@ def upgrade():
     sa.Column('send_emails', sa.Boolean(), nullable=True),
     sa.Column('underrepresented', sa.String(), nullable=False),
     sa.Column('gender', sa.String(), nullable=False),
-    sa.Column('sexual_identity', sa.String(), nullable=False),
-    sa.Column('shirt_size', sa.String(), nullable=False),
-    sa.Column('address_line_1', sa.String(), nullable=False),
-    sa.Column('address_line_2', sa.String(), nullable=False),
-    sa.Column('city', sa.String(), nullable=False),
-    sa.Column('state', sa.String(), nullable=False),
-    sa.Column('zip_code', sa.String(), nullable=False),
-    sa.Column('major', sa.String(), nullable=False),
+    sa.Column('pronouns', sa.String(), nullable=False),
+    sa.Column('highest_level', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('dietary',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('signup_id', sa.Integer(), nullable=True),
+    sa.Column('signup_id', sa.Integer(), nullable=False),
     sa.Column('vegetarian', sa.Boolean(), nullable=True),
     sa.Column('vegan', sa.Boolean(), nullable=True),
     sa.Column('celiac', sa.Boolean(), nullable=True),
-    sa.Column('allergies', sa.Boolean(), nullable=True),
-    sa.Column('allergies_explained', sa.String(), nullable=True),
     sa.Column('kosher', sa.Boolean(), nullable=True),
     sa.Column('halal', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.ForeignKeyConstraint(('signup_id',), ['signup.id'],)
     )
-    op.create_table('pronouns',
+    op.create_table('major',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('signup_id', sa.Integer(), nullable=True),
-    sa.Column('she_her', sa.Boolean(), nullable=True),
-    sa.Column('he_him', sa.Boolean(), nullable=True),
-    sa.Column('they_them', sa.Boolean(), nullable=True),
+    sa.Column('signup_id', sa.Integer(), nullable=False),
+    sa.Column('cs_ce_se', sa.Boolean(), nullable=True),
+    sa.Column('other_eng', sa.Boolean(), nullable=True),
+    sa.Column('is_it_sysadmin', sa.Boolean(), nullable=True),
+    sa.Column('nat_sci', sa.Boolean(), nullable=True),
+    sa.Column('math', sa.Boolean(), nullable=True),
+    sa.Column('web_dev', sa.Boolean(), nullable=True),
+    sa.Column('business', sa.Boolean(), nullable=True),
+    sa.Column('humanities', sa.Boolean(), nullable=True),
+    sa.Column('social_sci', sa.Boolean(), nullable=True),
+    sa.Column('fine_art', sa.Boolean(), nullable=True),
+    sa.Column('health_sci', sa.Boolean(), nullable=True),
+    sa.Column('undecided_none', sa.Boolean(), nullable=True),
+    sa.Column('no_major', sa.Boolean(), nullable=True),
     sa.Column('other', sa.String(), nullable=True),
-    sa.Column('prefer_not_to_answer', sa.Boolean(), nullable=True),
+    sa.Column('prefer_not_answer', sa.Boolean(), nullable=True),
+    sa.PrimaryKeyConstraint('id'),
+    sa.ForeignKeyConstraint(('signup_id',), ['signup.id'],)
+    )
+    op.create_table('orientiation',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+    sa.Column('signup_id', sa.Integer(), nullable=False),
+    sa.Column('heterosexual', sa.Boolean(), nullable=True),
+    sa.Column('gay_lesbian', sa.Boolean(), nullable=True),
+    sa.Column('bisexual', sa.Boolean(), nullable=True),
+    sa.Column('other', sa.String(), nullable=True),
+    sa.Column('prefer_not_answer', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.ForeignKeyConstraint(('signup_id',), ['signup.id'],)
     )
     op.create_table('race',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('signup_id', sa.Integer(), nullable=True),
+    sa.Column('signup_id', sa.Integer(), nullable=False),
     sa.Column('asian_indian', sa.Boolean(), nullable=True),
     sa.Column('black_african', sa.Boolean(), nullable=True),
     sa.Column('chinese', sa.Boolean(), nullable=True),
     sa.Column('filipino', sa.Boolean(), nullable=True),
     sa.Column('guamanian_chamorro', sa.Boolean(), nullable=True),
-    sa.Column('hispanic_latino_spanish', sa.Boolean(), nullable=True),
+    sa.Column('hispanic_latino', sa.Boolean(), nullable=True),
     sa.Column('japanese', sa.Boolean(), nullable=True),
     sa.Column('korean', sa.Boolean(), nullable=True),
     sa.Column('middle_eastern', sa.Boolean(), nullable=True),
@@ -97,7 +111,8 @@ def upgrade():
 def downgrade():
     # ### commands auto generated by Alembic - please adjust! ###
     op.drop_table('race')
-    op.drop_table('pronouns')
+    op.drop_table('orientiation')
+    op.drop_table('major')
     op.drop_table('dietary')
     op.drop_table('signup')
     # ### end Alembic commands ###

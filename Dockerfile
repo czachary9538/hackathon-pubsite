@@ -8,7 +8,6 @@ RUN pip install -r requirements.txt
 
 COPY hackathon/ hackathon/
 COPY migrations/ migrations/
-COPY templates/ templates/
 COPY *.py .
 
 COPY dev.sh .

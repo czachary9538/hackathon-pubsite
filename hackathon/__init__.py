@@ -9,7 +9,7 @@ app.config.from_pyfile(config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from hackathon.models import SignUp, DietaryRestrictions, Pronouns, Race
+from hackathon.models import SignUp, DietaryRestrictions, Race, Orientation, Major
 
 @app.route('/')
 def index():
@@ -19,17 +19,25 @@ def index():
 def register():
     if request.method == "GET":
         return render_template('registration.html')
-    form_data = request.form.to_dict()
-    new_signup = SignUp(form_data)
-    new_dietary = DietaryRestrictions(form_data, new_signup.id)
-    pronouns = Pronouns(form_data, new_signup.id)
-    race = Race(form_data, new_signup.id)
-    db.session.add(new_signup)
-    db.session.add(new_dietary)
-    db.session.add(pronouns)
-    db.session.add(race)
-    db.session.commit()
-    return redirect(url_for('index'))
+    try:
+        form_data = request.get_json(force=True)
+        new_signup = SignUp(form_data)
+        db.session.add(new_signup)
+        db.session.commit()
+        dietary = DietaryRestrictions(form_data, new_signup.id)
+        race = Race(form_data, new_signup.id)
+        orientation = Orientation(form_data, new_signup.id)
+        major = Major(form_data, new_signup.id)
+        db.session.add(dietary)
+        db.session.add(race)
+        db.session.add(orientation)
+        db.session.add(major)
+        db.session.commit()
+        return "", 200
+    except ValueError as value_err:
+        return str(value_err), 400
+    except Exception as err:
+        return str(err), 500
 
 @app.route('/favicon/<string:filename>')
 def favicon(filename):
