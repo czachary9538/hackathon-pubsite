@@ -54,13 +54,13 @@ class SignUp(db.Model):
         if len(self.country) == 0:
             raise ValueError("Missing country")
         self.coc = form_data['mlh1']
-        if len(self.coc) == 0:
+        if not self.coc:
             raise ValueError("Missing coc")
         self.share_registration = form_data['mlh2']
-        if len(self.share_registration) == 0:
+        if not self.share_registration:
             raise ValueError("Missing share_registration")
         self.send_emails = form_data['mlh3']
-        if len(self.send_emails) == 0:
+        if not self.send_emails:
             raise ValueError("Missing send_emails")
         self.underrepresented = form_data['underrep']
         if len(self.underrepresented) == 0:
@@ -119,7 +119,7 @@ class Race(db.Model):
     other_asian = db.Column(db.Boolean)
     other_pacific_island = db.Column(db.Boolean)
     other = db.Column(db.String, nullable=True)
-    prefer_not_to_answer = db.Column(db.Boolean)
+    prefer_not_answer = db.Column(db.Boolean)
 
     def __init__(self, form_data, signup_id):
         self.signup_id = signup_id
@@ -139,15 +139,15 @@ class Race(db.Model):
         self.white = 'white' in form_data['race']
         self.other_asian = 'other_asian' in form_data['race']
         self.other_pacific_island = 'other_pacific_island' in form_data['race']
+        self.prefer_not_answer = 'prefer_not_answer' in form_data['race']
         if 'other' in form_data['race']:
             self.other = form_data['raceOther']
         else:
             self.other = None
-        self.prefer_not_to_answer = 'prefer_not_to_answer' in form_data['race']
-        if not any(self.asian_indian, self.black_african, self.chinese, self.filipino, self.guamanian_chamorro,
+        if not any((self.asian_indian, self.black_african, self.chinese, self.filipino, self.guamanian_chamorro,
                    self.hispanic_latino, self.japanese, self.korean, self.middle_eastern, self.native_american_alaskan,
                    self.native_hawaiian, self.samoan, self.vietnamese, self.white, self.other_asian, self.other_pacific_island,
-                   self.prefer_not_answer, self.other):
+                   self.prefer_not_answer, self.other)):
             return ValueError("No option selected, or missing other field box")
 
 
@@ -172,7 +172,7 @@ class Orientation(db.Model):
             self.other = form_data['orientationOther']
         else:
             self.other = None
-        if not any(self.heterosexual, self.gay_lesbian, self.bisexual, self.other, self.prefer_not_answer, self.other):
+        if not any((self.heterosexual, self.gay_lesbian, self.bisexual, self.other, self.prefer_not_answer, self.other)):
             return ValueError("No option selected, or missing other field box")
 
 class Major(db.Model):
@@ -215,7 +215,7 @@ class Major(db.Model):
             self.other = form_data['majorOther']
         else:
             self.other = None
-        if not any(self.cs_ce_se, self.other_eng, self.is_it_sysadmin, self.nat_sci, self.math, self.web_dev, self.business,
+        if not any((self.cs_ce_se, self.other_eng, self.is_it_sysadmin, self.nat_sci, self.math, self.web_dev, self.business,
                    self.humanities, self.social_sci, self.fine_art, self.health_sci, self.undecided_none, self.no_major,
-                   self.prefer_not_answer, self.other):
+                   self.prefer_not_answer, self.other)):
             return ValueError("No option selected, or missing other field box")

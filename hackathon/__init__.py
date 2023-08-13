@@ -36,8 +36,6 @@ def register():
         return f'{new_signup.id}', 200
     except ValueError as value_err:
         return str(value_err), 400
-    except Exception as err:
-        return str(err), 500
 
 @app.route('/success')
 def success():

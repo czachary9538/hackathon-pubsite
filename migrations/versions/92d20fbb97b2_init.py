@@ -101,7 +101,7 @@ def upgrade():
     sa.Column('other_asian', sa.Boolean(), nullable=True),
     sa.Column('other_pacific_island', sa.Boolean(), nullable=True),
     sa.Column('other', sa.String(), nullable=True),
-    sa.Column('prefer_not_to_answer', sa.Boolean(), nullable=True),
+    sa.Column('prefer_not_answer', sa.Boolean(), nullable=True),
     sa.PrimaryKeyConstraint('id'),
     sa.ForeignKeyConstraint(('signup_id',), ['signup.id'],)
     )

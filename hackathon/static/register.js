@@ -135,20 +135,28 @@ function submitRegister() {
             body: JSON.stringify(outJson)
         }
     ).then((resp) => {
-        let text = resp.text().then((text)=>text);
         if (resp.status != 200) {
             document.getElementById("submit-div").insertAdjacentHTML("beforebegin", 
             `
             <div class="alert alert-danger error" role="alert">
-                An error has occured on submission.
-                <code>
-                    ${text}
-                </code>
+                An error has occured on submission. Please try again later or contact hacks@csh.rit.edu
             </div>
             `);
+            return false;
         } else {
-            window.location.href = `/success?id=${text}`;
+            return resp.text();
         }
+    }).then((text) => {
+        if (text) {
+            window.location.href = `/success?id=${text}`
+        }
+    }).catch((_) => {
+        document.getElementById("submit-div").insertAdjacentHTML("beforebegin", 
+            `
+            <div class="alert alert-danger error" role="alert">
+                An error has occured on submission. Please try again later or contact hacks@csh.rit.edu
+            </div>
+            `);
     });
     return false;
 }
