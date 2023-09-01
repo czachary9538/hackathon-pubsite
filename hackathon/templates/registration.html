@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://s3.csh.rit.edu/csh-material-bootstrap/4.0.0/dist/csh-material-bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/register.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img src="https://s3.csh.rit.edu/cshacks-assets/csh_hacks_logo.svg" alt="CSH Hacks logo" />
+                    <h1>
+                        Registration
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registration-wrapper">
+        <div class="card">    
+            <form onsubmit="return submitRegister()" method="post">
+
+                <h2> We're looking forward to having you! Filling out this registration form should take around 5-10 minutes. After you submit, look out for a registration confirmation email (might take up to a week for your registration to be confirmed).</h2>
+            
+                <div class="row-registration">
+                    <div class="col-4" id="first-div">
+                        <p>First name</p>
+                        <input name="first_name" id="first_name" type="text">
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="last-div">
+                        <p>Last name</p>
+                        <input name="last_name" id="last_name" type="text">
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="email-div">
+                        <p>Email</p>
+                        <input name="email" id="email" type="email">
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="age-div">
+                        <p>Age</p>
+                        <input name="age" id="age" type="number" min="0">
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="phone-div">
+                        <p>Phone number</p>
+                        <input name="phone_number" id="phone_number" type="tel">
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="uni-div">
+                        <p>University</p>
+                        <select name="university-dropdown" id="university-dropdown">
+                            <option></option>
+                            <option>Rochester Institute of Technology</option>
+                            <option>University of Rochester</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="tshirt-div">
+                        <p>T-shirt size</p>
+                        <select name="tshirt-dropdown" id="tshirt-dropdown">
+                            <option></option>
+                            <option>XS</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                            <option>XXXL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="study-div">
+                        <p>Level of study</p>
+                        <select name="studylevel-dropdown" id="studylevel-dropdown">
+                            <option></option>
+                            <option>Less than Secondary/High School</option>
+                            <option>Secondary/High School</option>
+                            <option>Undergraduate University (2 year - community college or similar)</option>
+                            <option>Undergraduate University (3+ year)</option>
+                            <option>Graduate University (Masters, Professional, Doctoral, etc)</option>
+                            <option>Code School/Bootcamp</option>
+                            <option>Other Vocational/Trade Program or Apprenticeship</option>
+                            <option>Post Doctorate</option>
+                            <option>Other</option>
+                            <option>I am not currently a student</option>
+                            <option>Prefer not to answer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="col-4" id="country-div">
+                        <p>Country</p>
+                        <select name="country-dropdown" id="country-dropdown">
+                            <option></option>
+                            <option>United States of America</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br>
+
+                <h2> We are currently in the process of partnering with MLH. The following 3 checkboxes are for this partnership. If we do not end up partnering with MLH, your information will not be shared</h2>
+            
+                <div class="row-registration">
+                    <div class="col-6" id="mlh-div-1">
+                        <input type="checkbox" id="mlh-checkbox-1">
+                        <label for="mlh-checkbox-1">I have read and agree to the MLH Code of Conduct (<a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf" target="_blank">https://static.mlh.io/docs/mlh-code-of-conduct.pdf</a>).</label> 
+                    </div>
+                    <div class="col-6" id="mlh-div-2">
+                        <input type="checkbox" id="mlh-checkbox-2">
+                        <label for="mlh-checkbox-2">I authorize you to share my application/registration information with Major League Hacking for event administration, ranking, and MLH administration in-line with the MLH Privacy Policy (<a href="https://mlh.io/privacy" target="_blank">https://mlh.io/privacy</a>). I further agree to the terms of both the MLH Contest Terms and Conditions (<a href="https://github.com/MLH/mlh-policies/blob/main/contest-terms.md" target="_blank">https://github.com/MLH/mlh-policies/blob/main/contest-terms.md</a>) and the MLH Privacy Policy (<a href="https://mlh.io/privacy" target="_blank">https://mlh.io/privacy</a>).</label>
+                    </div>
+                    <div class="col-6" id="mlh-div-3">
+                        <input type="checkbox" id="mlh-checkbox-3">
+                        <label for="mlh-checkbox-3">I authorize MLH to send me occasional emails about relevant events, career opportunities, and community announcements.</label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="dietary-div">
+                        <h4>Dietary Restrictions</h4>
+                        <label>
+                            <input type="checkbox" value="vegetarian"/> Vegetarian
+                        </label>
+                        <label>
+                            <input type="checkbox" value="vegan"/> Vegan
+                        </label>
+                        <label>
+                            <input type="checkbox" value="celiac"/> Celiac
+                        </label>
+                        <label>
+                            <input type="checkbox" value="halal"/> Halal
+                        </label>
+                        <label>
+                            <input type="checkbox" value="kosher"/> Kosher
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="underrep-div">
+                        <h4>Do you identify as part of an underrepresented group in the technology industry?</h4>
+                        <label>
+                            <input type="radio" name="underrep-group" id="underrep-group-yes" value="yes">Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="underrep-group" id="underrep-group-no" value="no">No
+                        </label>
+                        <label>
+                            <input type="radio" name="underrep-group" id="underrep-group-unsure" value="unsure">Unsure
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="gender-div">
+                        <h4>Gender</h4>
+                        <label>
+                            <input type="radio" name="gender" id="gender-man" value="man">Man
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" id="gender-woman" value="woman">Woman
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" id="gender-non-binary" value="non-binary">Non-binary
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" id="gender-self-describe" value="self-describe">Prefer to self describe
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" id="gender-prefer-not" value="prefer-not-answer">Prefer not to answer
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="pronouns-div">
+                        <h4>Pronouns</h4>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-she/her" value="she-her">She/her
+                        </label>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-he/him" value="he-him">He/him
+                        </label>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-they/them" value="they-them">They/them
+                        </label>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-she/they" value="she-they">She/they
+                        </label>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-he/they" value="he-they">He/they
+                        </label>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-prefer-not" value="prefer-not-answer">Prefer not to answer
+                        </label>
+                        <label>
+                            <input type="radio" name="pronouns" id="pronouns-other" value="other">Other 
+                            <div class="col-4">
+                                <input name="text" type="text" id="pronouns-other-text">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="race-div">
+                        <h4>Race/ethnicity</h4>
+                        <label>
+                            <input type="checkbox" value="asian_indian"/> Asian Indian
+                        </label>
+                        <label>
+                            <input type="checkbox" value="black_african"/> Black or African
+                        </label>
+                        <label>
+                            <input type="checkbox" value="chinese"/> Chinese
+                        </label>
+                        <label>
+                            <input type="checkbox" value="filipino"/> Filipino
+                        </label>
+                        <label>
+                            <input type="checkbox" value="guamanian_chamorro"/> Guamanian or Chamorro 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="hispanic_latino"/> Hispanic/Latino/Spanish Origin 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="japanese"/> Japanese
+                        </label>
+                        <label>
+                            <input type="checkbox" value="korean"/> Korean
+                        </label>
+                        <label>
+                            <input type="checkbox" value="middle_eastern"/> Middle Eastern 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="native_american_alaskan"/> Native American or Alaskan Native
+                        </label>
+                        <label>
+                            <input type="checkbox" value="native_hawaiian"/> Native Hawaiian
+                        </label>
+                        <label>
+                            <input type="checkbox" value="samoan"/> Samoan
+                        </label>
+                        <label>
+                            <input type="checkbox" value="vietnamese"/> Vietnamese
+                        </label>
+                        <label>
+                            <input type="checkbox" value="white"/> White
+                        </label>
+                        <label>
+                            <input type="checkbox" value="other_asian"/> Other Asian (Thai, Cambodian, etc)
+                        </label>
+                        <label>
+                            <input type="checkbox" value="other_pacific_islander"/> Other Pacific Islander  
+                        </label>
+                        <label>
+                            <input type="checkbox" value="prefer_not_answer"/> Prefer Not to Answer
+                        </label>
+                        <label>
+                            <input type="checkbox" value="other"/> Other (please specify)
+                            <div class="col-4">
+                                <input name="text" type="text" id="race-other-text">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="orientation-div">
+                        <h4>Do you consider yourself to be any of the following?</h4>
+                        <label>
+                            <input type="checkbox" value="heterosexual"/> Heterosexual or straight 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="gay_lesbian"/> Gay or lesbian 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="bisexual"/> Bisexual
+                        </label>
+                        <label>
+                            <input type="checkbox" value="prefer_not_answer"/> Prefer Not to Answer
+                        </label>
+                        <label>
+                            <input type="checkbox" value="other"/> Different identity
+                            <div class="col-4">
+                                <input name="text" type="text" id="orientation-other-text">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="edu-div">
+                        <h4>What is the highest level of formal education that you have completed?</h4>
+                        <label>
+                            <input type="radio" name="edu" id="edu-less" value="less-than-hs">Less than Secondary/High School 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-hs" value="hs">Secondary/High School 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-2-yr" value="undergrad-2">Undergraduate University (2 year - community college or similar) 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-undergrad" value="undergrad-3-plus">Undergraduate University (3+ year) 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-grad" value="grad">Graduate University (Masters, Professional, Doctoral, etc) 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-btcmp" value="code-school">Code School/Bootcamp 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-other" value="vocational">Other Vocational/Trade Program or Apprenticeship 
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-not" value="not-student">I’m not currently a student  
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-prefer-not" value="prefer-not-answer">Prefer not to answer
+                        </label>
+                        <label>
+                            <input type="radio" name="edu" id="edu-other" value="other">Other 
+                            <div class="col-4">
+                                <input name="text" type="text" id="edu-other-text">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row-registration">
+                    <div class="demo" id="major-div">
+                        <h4>Major/field of study </h4>
+                        <label>
+                            <input type="checkbox" value="cs_ce_se"/> Computer science, computer engineering, or software engineering
+                        </label>
+                        <label>
+                            <input type="checkbox" value="other_eng"/> Another engineering discipline (such as civil, electrical, mechanical, etc.) 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="is_it_sysadmin"/> Information systems, information technology, or system administration 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="nat_sci"/> A natural science (such as biology, chemistry, physics, etc.) 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="math"/> Mathematics or statistics 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="web_dev"/> Web development or web design  
+                        </label>
+                        <label>
+                            <input type="checkbox" value="business"/> Business discipline (such as accounting, finance, marketing, etc.)   
+                        </label>
+                        <label>
+                            <input type="checkbox" value="humanities"/> Humanities discipline (such as literature, history, philosophy, etc.)
+                        </label>
+                        <label>
+                            <input type="checkbox" value="social_sci"/> Social science (such as anthropology, psychology, political science, etc.)  
+                        </label>
+                        <label>
+                            <input type="checkbox" value="fine_art"/> Fine arts or performing arts (such as graphic design, music, studio art, etc.) Fine arts or performing arts (such as graphic design, music, studio art, etc.)  
+                        </label>
+                        <label>
+                            <input type="checkbox" value="health_sci"/> Health science (such as nursing, pharmacy, radiology, etc.)  
+                        </label>
+                        <label>
+                            <input type="checkbox" value="undecided_none"/> Undecided / No Declared Major   
+                        </label>
+                        <label>
+                            <input type="checkbox" value="no_major"/> My school does not offer majors / primary areas of study 
+                        </label>
+                        <label>
+                            <input type="checkbox" value="prefer_not_answer"/> Prefer Not to Answer
+                        </label>
+                        <label>
+                            <input type="checkbox" value="other"/> Other
+                            <div class="col-4">
+                                <input name="text" type="text" id="major-other-text">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+
+
+                <div class="row-registration">
+                    <div class="submit" id="submit-div">
+                        <input class="submit-btn" type="submit" value="Submit">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!--
+    <script>
+        var bb = new Blob('schools.csv'.readAsText());
+        var blob = bb.getBlob('schools.csv');
+        //console.log(reader.readAsText(new File([""], "schools.csv")));
+        var list = ["test", "test2", "test3", "test4"];
+
+        for(var i=0; i<list.length; i++) {
+            var opt;
+            opt = document.createElement("OPTION");
+            opt.id = "value"+i+list[i];
+            opt.innerHTML = list[i];
+            // Finally, append <option> to dropdown menu
+            document.getElementById('university-dropdown').appendChild(opt);
+        }
+    </script>-->
+    
+</body>
+</html>

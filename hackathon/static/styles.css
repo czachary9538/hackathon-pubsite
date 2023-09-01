@@ -188,3 +188,84 @@ u {
   font-weight: 400;
   text-decoration-style: wavy;
 }
+
+#registration-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content:center;
+}
+
+form{
+  width: 600px;
+  height:auto;
+}
+
+.row-registration{
+  padding:10px;
+}
+
+form h2 {
+  padding: 20px;
+}
+
+.row-registration .col-4 input {
+  background:#f2f2f2;
+  border:none;
+  outline: none;
+  padding:10px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.row-registration .col-4 select {
+  padding:10px;
+  height: 45px;
+  border-radius: 5px;
+  width:300px;
+}
+
+.row-registration .demo {
+  display: flex;
+  flex-direction: column;
+  padding:10px
+}
+
+.row-registration .demo label {
+  padding-left: 10px;
+}
+
+.row-registration .col-6 {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-registration .col-6 label {
+  padding-bottom: 20px;
+  flex-shrink: 0;
+  width: 500px;
+}
+
+small {
+  width: 500px;
+}
+
+.row-registration label {
+  font-weight: 300;
+  font-size: 0.75em;
+  line-height: 1.4;
+  color: #D9B8CE;
+  margin-bottom: 0;
+}
+
+.submit {
+  padding: 20px;
+}
+.submit .submit-btn {
+  padding: 10px;
+  background-color: #25021A;
+  text-align: center;
+  border: 2px solid #50103D;
+  border-radius: 0.25em;
+  color:#f2f2f2
+} 
