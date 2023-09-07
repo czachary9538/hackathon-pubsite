@@ -98,6 +98,7 @@ p {
   padding: 0 1em;
 }
 
+/*
 @media screen and (max-width: 60em) {
   #content-wrapper {
     grid-template-columns: 1fr;
@@ -108,9 +109,29 @@ p {
       "c"
       "b"
       "e";
-    max-width: 25em;
+    max-width: 20em;
   }
 }
+*/
+
+@media screen and (max-width: 600px) {
+  h2 {
+    max-width: 75%;
+  }
+  h4 {
+    max-width: 75%;
+  }
+  p {
+    max-width: 75%;
+  }
+  label {
+    max-width: 75%;
+  }
+  #edu-2-yr{
+    max-width: 85%;
+  }
+}
+
 
 #about-cshacks-wrapper {
   grid-area: a;
