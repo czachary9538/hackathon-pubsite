@@ -80,6 +80,7 @@ p {
   border-color: #50103D;
   border-width: 2pt;
   border-radius: 0.25em;
+  word-wrap: normal;
 }
 
 #content-wrapper {
@@ -114,22 +115,28 @@ p {
 }
 */
 
+
 @media screen and (max-width: 600px) {
+  /*
   h2 {
     max-width: 75%;
   }
   h4 {
     max-width: 75%;
   }
-  p {
+   p {
     max-width: 75%;
   }
+  */
   label {
-    max-width: 75%;
+    max-width: 150%;
+    margin: 2px;
   }
+  /*
   #edu-2-yr{
     max-width: 85%;
   }
+  */
 }
 
 
@@ -218,7 +225,7 @@ u {
 }
 
 form{
-  width: 600px;
+  max-width: 600px;
   height:auto;
 }
 
@@ -240,10 +247,10 @@ form h2 {
 }
 
 .row-registration .col-4 select {
-  padding:10px;
+  /* padding:10px; */
   height: 45px;
   border-radius: 5px;
-  width:300px;
+  max-width: 300%;
 }
 
 .row-registration .demo {
