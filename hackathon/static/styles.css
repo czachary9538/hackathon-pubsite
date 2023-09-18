@@ -159,10 +159,6 @@ p {
 a:not(.btn) {
   font-family: "Rubik Medium", Rubik, Roboto, sans-serif;
   color: var(--fg);
-  text-decoration: none;
-}
-
-a:hover {
   text-decoration: underline;
 }
 
