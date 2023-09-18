@@ -99,8 +99,8 @@ p {
   padding: 0 1em;
 }
 
-/*
-@media screen and (max-width: 60em) {
+
+@media screen and (max-width: 40em) {
   #content-wrapper {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -113,7 +113,7 @@ p {
     max-width: 20em;
   }
 }
-*/
+
 
 
 @media screen and (max-width: 600px) {
