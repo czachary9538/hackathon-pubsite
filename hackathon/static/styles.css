@@ -88,12 +88,13 @@ p {
   margin-right: auto;
   display: inline-block;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   grid-template-rows: auto auto auto auto;
   grid-template-areas:
     "a d"
-    "b d"
-    "c e";
+    "f d"
+    "c d"
+    "b e";
   grid-gap: 1em 1em;
   max-width: 40em;
   padding: 0 1em;
@@ -107,6 +108,7 @@ p {
     grid-template-areas:
       "a"
       "d"
+      "f"
       "c"
       "b"
       "e";
@@ -183,6 +185,10 @@ a:not(.btn) {
 
 #sponsors {
   grid-area: e;
+}
+
+#categories {
+  grid-area: f;
 }
 
 #sponsors img {
