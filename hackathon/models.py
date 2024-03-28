@@ -24,6 +24,7 @@ class SignUp(db.Model):
     orientation = db.relationship('Orientation', backref='signup', lazy=True)
     highest_level = db.Column(db.String, nullable=False)
     major = db.relationship('Major', backref='signup', lazy=True)
+    photo = db.relationship('Photo', backref='signup', lazy=True)
 
 
 
@@ -238,7 +239,7 @@ class Major(db.Model):
         
 
 
-class photo(db.Model):
+class Photo(db.Model):
     __tablename__ = 'photo'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     signup_id = db.Column(db.Integer, db.ForeignKey('signup.id'), nullable=False)
