@@ -24,6 +24,7 @@ class SignUp(db.Model):
     orientation = db.relationship('Orientation', backref='signup', lazy=True)
     highest_level = db.Column(db.String, nullable=False)
     major = db.relationship('Major', backref='signup', lazy=True)
+    photo = db.Column(db.String, nullable=False)
 
     def __init__(self, form_data):
         self.first_name = form_data['firstName']
@@ -78,6 +79,8 @@ class SignUp(db.Model):
             self.highest_level = form_data['eduOther']
         if len(self.highest_level) == 0:
             raise ValueError("Missing highest_level")
+        if len(self.photo) == 0:
+            raise ValueError("Missing photo consent")
 
 class DietaryRestrictions(db.Model):
     __tablename__ = 'dietary'
@@ -95,8 +98,16 @@ class DietaryRestrictions(db.Model):
         self.vegetarian = 'vegetarian' in form_data['dietary']
         self.vegan = 'vegan' in form_data['dietary']
         self.celiac = 'celiac' in form_data['dietary']
-        self.kosher = 'kosher' in form_data['dietary']
         self.halal = 'halal' in form_data['dietary']
+        self.kosher = 'kosher' in form_data['dietary']
+        self.lactose = 'lactose' in form_data['dietary']
+        self.nuts = 'nuts' in form_data['dietary']
+        if 'other' in form_data['dietary']:
+            self.other = form_data['dietaryOther']
+        else:
+            self.other = None
+
+
 
 class Race(db.Model):
     __tablename__ = 'race'
