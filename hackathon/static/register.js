@@ -72,6 +72,9 @@ function submitRegister() {
     let major = Array.from(document.getElementById("major-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
     failed = pleaseFillIn(major, "major-div") || failed;
     let majorOther = document.getElementById("major-other-text").value;
+    let photoConsent = Array.from(document.getElementById("photo-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
+    failed = pleaseFillIn(photoConsent, "photo-div") || failed;
+
     let outJson = {
         firstName,
         lastName,
@@ -92,7 +95,8 @@ function submitRegister() {
         race,
         orientation,
         highestEdu: highestEdu[0],
-        major
+        major,
+        photoConsent: photoConsent[0]
     };
     if (pronouns.includes("other")) {
         failed = pleaseFillInOther(pronounsOther, "pronouns-div") || failed;
@@ -114,6 +118,11 @@ function submitRegister() {
         failed = pleaseFillInOther(majorOther, "major-div") || failed;
         outJson.majorOther = majorOther;
     }
+    if (dietary.includes("other")) {
+        failed = pleaseFillInOther(dietary, "dietary-div") || failed;
+        outJson.majorOther = majorOther;
+    }
+
     if (failed) {
         document.getElementById("submit-div").insertAdjacentHTML("beforebegin", 
         `
