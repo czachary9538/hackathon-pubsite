@@ -89,6 +89,10 @@ class DietaryRestrictions(db.Model):
     celiac = db.Column(db.Boolean)
     kosher = db.Column(db.Boolean)
     halal = db.Column(db.Boolean)
+    lactose = db.Column(db.Boolean)
+    nuts = db.Column(db.Boolean)
+
+
 
     def __init__(self, form_data, signup_id):
         self.signup_id = signup_id
@@ -98,6 +102,7 @@ class DietaryRestrictions(db.Model):
         self.kosher = 'kosher' in form_data['dietary']
         self.halal = 'halal' in form_data['dietary']
         self.lactose = 'lactose' in form_data['dietary']
+        self.nuts = 'nuts' in form_data['dietary']
 
 
 class Race(db.Model):
