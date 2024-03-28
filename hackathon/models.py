@@ -99,8 +99,6 @@ class DietaryRestrictions(db.Model):
     other = db.Column(db.String, nullable=True)
 
 
-
-
     def __init__(self, form_data, signup_id):
         self.signup_id = signup_id
         self.vegetarian = 'vegetarian' in form_data['dietary']
@@ -240,7 +238,7 @@ class Major(db.Model):
         
 
 
-class photoConsent(db.Model):
+class photo(db.Model):
     __tablename__ = 'photo'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     signup_id = db.Column(db.Integer, db.ForeignKey('signup.id'), nullable=False)
