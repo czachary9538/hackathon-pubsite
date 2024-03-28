@@ -91,6 +91,8 @@ class DietaryRestrictions(db.Model):
     halal = db.Column(db.Boolean)
     lactose = db.Column(db.Boolean)
     nuts = db.Column(db.Boolean)
+    other = db.Column(db.String, nullable=True)
+
 
 
 
@@ -103,6 +105,7 @@ class DietaryRestrictions(db.Model):
         self.halal = 'halal' in form_data['dietary']
         self.lactose = 'lactose' in form_data['dietary']
         self.nuts = 'nuts' in form_data['dietary']
+        self.other = 'other' in form_data['dietary']
 
 
 class Race(db.Model):
