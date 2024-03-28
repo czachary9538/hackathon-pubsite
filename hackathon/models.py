@@ -97,6 +97,8 @@ class DietaryRestrictions(db.Model):
         self.celiac = 'celiac' in form_data['dietary']
         self.kosher = 'kosher' in form_data['dietary']
         self.halal = 'halal' in form_data['dietary']
+        self.lactose = 'lactose' in form_data['dietary']
+
 
 class Race(db.Model):
     __tablename__ = 'race'
