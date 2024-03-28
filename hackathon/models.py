@@ -105,7 +105,10 @@ class DietaryRestrictions(db.Model):
         self.halal = 'halal' in form_data['dietary']
         self.lactose = 'lactose' in form_data['dietary']
         self.nuts = 'nuts' in form_data['dietary']
-        self.other = 'other' in form_data['dietary']
+        if 'other' in form_data['dietary']:
+            self.other = form_data['dietaryOther']
+        else:
+            self.other = None
 
 
 class Race(db.Model):
