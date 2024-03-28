@@ -53,6 +53,7 @@ function submitRegister() {
         failed = true;
     }
     let dietary = Array.from(document.getElementById("dietary-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
+    let dietaryOther = document.getElementById("dietary-other-text").value;
     let underrep = Array.from(document.getElementById("underrep-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
     failed = pleaseFillIn(underrep, "underrep-div") || failed;
     let gender = Array.from(document.getElementById("gender-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
@@ -72,8 +73,8 @@ function submitRegister() {
     let major = Array.from(document.getElementById("major-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
     failed = pleaseFillIn(major, "major-div") || failed;
     let majorOther = document.getElementById("major-other-text").value;
-    let photoConsent = Array.from(document.getElementById("photo-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
-    failed = pleaseFillIn(photoConsent, "photo-div") || failed;
+    let photo = Array.from(document.getElementById("photo-div").getElementsByTagName("input")).filter((element) => element.checked).map((element, index, array) => element.value);
+    failed = pleaseFillIn(photo, "photo-div") || failed;
 
     let outJson = {
         firstName,
@@ -96,7 +97,7 @@ function submitRegister() {
         orientation,
         highestEdu: highestEdu[0],
         major,
-        photoConsent: photoConsent[0]
+        photo: photo[0]
     };
     if (pronouns.includes("other")) {
         failed = pleaseFillInOther(pronounsOther, "pronouns-div") || failed;
@@ -119,8 +120,8 @@ function submitRegister() {
         outJson.majorOther = majorOther;
     }
     if (dietary.includes("other")) {
-        failed = pleaseFillInOther(dietary, "dietary-div") || failed;
-        outJson.majorOther = majorOther;
+        failed = pleaseFillInOther(dietaryOther, "dietary-div") || failed;
+        outJson.dietaryOther = dietaryOther;
     }
 
     if (failed) {
