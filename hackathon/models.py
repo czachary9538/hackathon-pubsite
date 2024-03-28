@@ -25,6 +25,8 @@ class SignUp(db.Model):
     highest_level = db.Column(db.String, nullable=False)
     major = db.relationship('Major', backref='signup', lazy=True)
 
+
+
     def __init__(self, form_data):
         self.first_name = form_data['firstName']
         if len(self.first_name) == 0:
@@ -78,6 +80,9 @@ class SignUp(db.Model):
             self.highest_level = form_data['eduOther']
         if len(self.highest_level) == 0:
             raise ValueError("Missing highest_level")
+        
+
+
 
 class DietaryRestrictions(db.Model):
     __tablename__ = 'dietary'
@@ -231,4 +236,22 @@ class Major(db.Model):
         if not any((self.cs_ce_se, self.other_eng, self.is_it_sysadmin, self.nat_sci, self.math, self.web_dev, self.business,
                    self.humanities, self.social_sci, self.fine_art, self.health_sci, self.undecided_none, self.no_major,
                    self.prefer_not_answer, self.other)):
+            return ValueError("No option selected, or missing other field box")
+        
+
+
+class photoConsent(db.Model):
+    __tablename__ = 'photo'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    signup_id = db.Column(db.Integer, db.ForeignKey('signup.id'), nullable=False)
+    
+    yes = db.Column(db.Boolean)
+    no = db.Column(db.Boolean)
+   
+    def __init__(self, form_data, signup_id):
+        self.signup_id = signup_id
+        self.yes = 'yes' in form_data['photo']
+        self.no = 'no' in form_data['photo']
+
+        if not any((self.yes, self.no)):
             return ValueError("No option selected, or missing other field box")
