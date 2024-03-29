@@ -24,9 +24,7 @@ class SignUp(db.Model):
     orientation = db.relationship('Orientation', backref='signup', lazy=True)
     highest_level = db.Column(db.String, nullable=False)
     major = db.relationship('Major', backref='signup', lazy=True)
-    # photo = db.relationship('Photo', backref='signup', lazy=True)
-    photo = db.Column(db.String, nullable=False)
-
+    photo = db.relationship('Photo', backref='signup', lazy=True)
 
 
     def __init__(self, form_data):
