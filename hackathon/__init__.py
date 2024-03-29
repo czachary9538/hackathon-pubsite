@@ -9,7 +9,7 @@ app.config.from_pyfile(config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from hackathon.models import SignUp, DietaryRestrictions, Race, Orientation, Major
+from hackathon.models import SignUp, DietaryRestrictions, Race, Orientation, Major, Photo
 
 @app.route('/')
 def index():
@@ -28,10 +28,13 @@ def register():
         race = Race(form_data, new_signup.id)
         orientation = Orientation(form_data, new_signup.id)
         major = Major(form_data, new_signup.id)
+        photo = Photo(form_data, new_signup.id)
+
         db.session.add(dietary)
         db.session.add(race)
         db.session.add(orientation)
         db.session.add(major)
+        db.session.add(photo)
         db.session.commit()
         return f'{new_signup.id}', 200
     except ValueError as value_err:
