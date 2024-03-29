@@ -29,7 +29,6 @@ def register():
         orientation = Orientation(form_data, new_signup.id)
         major = Major(form_data, new_signup.id)
         photo = Photo(form_data, new_signup.id)
-
         db.session.add(dietary)
         db.session.add(race)
         db.session.add(orientation)
