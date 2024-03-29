@@ -97,7 +97,7 @@ function submitRegister() {
         orientation,
         highestEdu: highestEdu[0],
         major,
-        photo
+        photo: photo[0]
     };
     if (pronouns.includes("other")) {
         failed = pleaseFillInOther(pronounsOther, "pronouns-div") || failed;
